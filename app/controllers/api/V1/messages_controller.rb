@@ -2,12 +2,11 @@ class Api::V1::MessagesController < ApplicationController
 
   def create
     require 'twilio-ruby'
-    @recipient_number = params[:contact]
     client = Twilio::REST::Client.new(account_sid, auth_token)
 
     begin
       message = client.messages.create(
-        body: 'You goddamn right! Esta mensagem foi enviada via API Rails por Daniel Rocha',
+        body: 'You goddamn right! Esta mensagem foi enviada via API Rails',
         from: "whatsapp:#{phone_number}",
         to: "whatsapp:[YOUR_NUMBER_REGISTERED_IN_TWILIO]"
       )
@@ -29,9 +28,5 @@ class Api::V1::MessagesController < ApplicationController
 
   def phone_number
     Rails.application.config.twilio_phone_number
-  end
-
-  def message_params
-    params.require(:message).permit(:contact)
   end
 end

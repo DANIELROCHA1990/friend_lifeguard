@@ -1,24 +1,33 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Este aplicativo é voltado para estudo de API que envia mensagens de texto via WhatsApp
 
-Things you may want to cover:
+## Algumas considerações
 
-* Ruby version
+* Ruby version = 3.0.2
+* Rails version = 7.0.4
+* Database = PostgreSQL
+* Gems = pg, dotenv-rails
+* Antes de tudo deve-se fazer o cadastro na plataforma da Twilio e suas devidas configurações
+  OBS: Embora o Twilio seja uma plataforma paga, eles oferecem uma opção gratuita que permite enviar mensagens de WhatsApp limitadas para o número de telefone que você verificou com eles.
+* bunde install
+* rails db:create
+* rails db:migrate
 
-* System dependencies
+## .env ##
+* Criar arquivo .env e logo após inseri-lo no .gitignore
 
-* Configuration
+* criar e configura as seguintes contantes conforme dados informado pelo Twilio
+  . TWILIO_AUTH_TOKEN=SEU_AUTH_TOKEN
+  . TWILIO_ACCOUNT_SID=SEU_ACCOUNT_SID
 
-* Database creation
+## Application.rb ##
+config.twilio_account_sid = 'SEU_ACCOUNT_SID'
+config.twilio_auth_token = 'SEU_AUTH_TOKEN'
+config.twilio_phone_number = 'SEU_NÚMERO_DO_WHATSAPP'
 
-* Database initialization
+*rails s
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Postman ##
+  . POST - http://localhost:3000/api/v1/messages
+  . SEND

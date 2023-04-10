@@ -12,7 +12,7 @@ module FriendLifeguard
     config.load_defaults 7.0
     config.twilio_account_sid = ENV["TWILIO_ACCOUNT_SID"]
     config.twilio_auth_token = ENV["TWILIO_AUTH_TOKEN"]
-    config.twilio_phone_number = '+14155238886'
+    config.twilio_phone_number = 'YOUR_NUMBER_REGISTERED_IN_TWILIO'
 
 
     # Configuration for the application, engines, and railties goes here.
